@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bdsn5o8s6byyx"]
+[gd_scene load_steps=10 format=3 uid="uid://bdsn5o8s6byyx"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_rddmu"]
 [ext_resource type="PackedScene" uid="uid://el8i0yh2l1m0" path="res://player_model_2.glb" id="2_atvx5"]
@@ -15,9 +15,19 @@ size = Vector3(0.626, 1, 0.656)
 radius = 0.532
 height = 2.274
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vk27m"]
+albedo_color = Color(0.713726, 0.72549, 0.870588, 1)
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_k8ik5"]
+material = SubResource("StandardMaterial3D_vk27m")
+size = Vector2(0.2, 0.2)
+
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 collision_mask = 14
 script = ExtResource("1_rddmu")
+default_speed = 15
+sprint_speed = 20.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_ybr5p")
@@ -72,3 +82,15 @@ shape = SubResource("CapsuleShape3D_rhf6u")
 
 [node name="floor_raycast" type="RayCast3D" parent="floor_raycasts"]
 transform = Transform3D(1.108, 0, 0, 0, 1.108, 0, 0, 0, 1.108, 0, 0, 0)
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.756867, 0.286698)
+lifetime = 0.7
+mesh = SubResource("QuadMesh_k8ik5")
+direction = Vector3(2.08165e-12, 3, 5)
+spread = 31.72
+gravity = Vector3(2.08165e-12, -1, 2.08165e-12)
+initial_velocity_min = 1.04
+initial_velocity_max = 1.04
+angular_velocity_min = 41.74
+angular_velocity_max = 46.7

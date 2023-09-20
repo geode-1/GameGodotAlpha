@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://c68pojljqdooy"]
+[gd_scene load_steps=12 format=3 uid="uid://c68pojljqdooy"]
 
 [ext_resource type="Script" path="res://Spring.gd" id="1_5hle5"]
+[ext_resource type="PackedScene" uid="uid://c1qra4x1i8l63" path="res://ASSETS/spring.glb" id="2_x3vfe"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_my1o6"]
 size = Vector3(3.5, 1.674, 3.5)
@@ -22,29 +23,72 @@ size = Vector3(3.5, 0.246, 3.5)
 [sub_resource type="BoxShape3D" id="BoxShape3D_5frfu"]
 size = Vector3(4, 1.322, 4)
 
+[sub_resource type="Animation" id="Animation_67mt6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_kynvo"]
+resource_name = "sping_bounce"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(1, 0.494, 1), Vector3(1, 1.572, 1), Vector3(1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0skii"]
+_data = {
+"RESET": SubResource("Animation_67mt6"),
+"sping_bounce": SubResource("Animation_kynvo")
+}
+
 [node name="Spring" type="Area3D"]
 collision_layer = 2
 script = ExtResource("1_5hle5")
+
+[node name="spring" parent="." instance=ExtResource("2_x3vfe")]
+transform = Transform3D(0.826, 0, 0, 0, 0.826, 0, 0, 0, 0.826, 0, -0.503628, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.717898, 0)
 shape = SubResource("BoxShape3D_my1o6")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("BoxMesh_ct7dr")
 skeleton = NodePath("../CollisionShape3D")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1.361, 2.08165e-12)
+visible = false
 mesh = SubResource("BoxMesh_ct7dr")
 skeleton = NodePath("../CollisionShape3D")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.950207, -0.31162, 0.000480589, 0.311612, 0.95017, -0.00871329, 0.00225859, 0.00842919, 0.999962, 0, 0.676416, 0)
+visible = false
 mesh = SubResource("BoxMesh_787tg")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.965926, 0.258819, 9.43348e-08, 0.258819, 0.965926, 2.10201e-09, -7.14593e-08, 1.39075e-08, -1, 0, 0.69739, 0)
+visible = false
 mesh = SubResource("BoxMesh_787tg")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
@@ -53,5 +97,10 @@ collision_layer = 10
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.541364, 0)
 shape = SubResource("BoxShape3D_5frfu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0skii")
+}
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

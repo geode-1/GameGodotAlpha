@@ -1,11 +1,9 @@
-[gd_scene load_steps=33 format=3 uid="uid://7g43h5d8fpxl"]
+[gd_scene load_steps=31 format=3 uid="uid://7g43h5d8fpxl"]
 
 [ext_resource type="Script" path="res://world_3.gd" id="1_cekh6"]
-[ext_resource type="Texture2D" uid="uid://ceukbojlncf42" path="res://ASSETS/meterial_textures/Metal041A_1K_Color.png" id="2_74cvi"]
-[ext_resource type="Texture2D" uid="uid://digjm8bs0eaj2" path="res://ASSETS/meterial_textures/Metal041A_1K_Metalness.png" id="3_0vbca"]
+[ext_resource type="Texture2D" uid="uid://bmophm06pjm75" path="res://ASSETS/Prototype/PNG/Dark/texture_01.png" id="2_8tuff"]
 [ext_resource type="PackedScene" uid="uid://bdsn5o8s6byyx" path="res://Player.tscn" id="3_qdq1j"]
 [ext_resource type="PackedScene" uid="uid://bfpcvimrbiyrs" path="res://game_ui.tscn" id="4_d05ny"]
-[ext_resource type="Texture2D" uid="uid://bra8k5lp31dwb" path="res://ASSETS/meterial_textures/Concrete031_1K-PNG/Concrete031_1K_NormalGL.png" id="4_gcdbe"]
 [ext_resource type="Script" path="res://endDeathzone.gd" id="8_w2w35"]
 [ext_resource type="PackedScene" uid="uid://cj668au6lwytd" path="res://ASSETS/level_wall2.gltf" id="9_snea4"]
 [ext_resource type="PackedScene" uid="uid://kkxc6yyhd11v" path="res://goal.tscn" id="10_c2ac0"]
@@ -27,17 +25,14 @@ volumetric_fog_density = 0.0278
 volumetric_fog_length = 15.24
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h8don"]
-albedo_texture = ExtResource("2_74cvi")
-metallic = 0.37
-metallic_specular = 0.32
-metallic_texture = ExtResource("3_0vbca")
-roughness_texture = ExtResource("4_gcdbe")
+albedo_texture = ExtResource("2_8tuff")
 uv1_offset = Vector3(60, 2.08165e-12, 2.08165e-12)
 uv1_triplanar = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_bmfp7"]
 material = SubResource("StandardMaterial3D_h8don")
 size = Vector3(1500, 100, 1)
+subdivide_height = 3
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p2c41"]
 size = Vector3(1500, 100, 1)
@@ -54,16 +49,16 @@ material = SubResource("StandardMaterial3D_ysb2e")
 size = Vector3(1000, 1, 50)
 
 [sub_resource type="BoxMesh" id="BoxMesh_5rmum"]
-size = Vector3(1, 6, 4)
+size = Vector3(0.5, 4, 30)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u8e8o"]
-size = Vector3(1, 6, 4)
+size = Vector3(0.5, 4, 30)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rrhsp"]
 size = Vector3(1500, 1, 100)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jvixr"]
-albedo_color = Color(1, 0.596078, 0.219608, 1)
+albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_e1xtj"]
 material = SubResource("StandardMaterial3D_jvixr")
@@ -141,7 +136,7 @@ shadow_enabled = true
 environment = SubResource("Environment_2wa4i")
 
 [node name="wall1" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.8091, 0, -15.5774)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 2.08165e-12, -15)
 collision_layer = 2
 metadata/_edit_group_ = true
 
@@ -152,7 +147,7 @@ mesh = SubResource("BoxMesh_bmfp7")
 shape = SubResource("BoxShape3D_p2c41")
 
 [node name="wall2" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.8091, 0, 18.8215)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 2.08165e-12, 15)
 collision_layer = 2
 metadata/_edit_group_ = true
 
@@ -181,7 +176,7 @@ shape = SubResource("BoxShape3D_oy287")
 mesh = SubResource("BoxMesh_eyyt2")
 
 [node name="StaticBody3D8" type="StaticBody3D" parent="."]
-transform = Transform3D(0.0659394, -0.178472, -2.00097, 2.00658, -0.0907568, 0.0742189, -0.0969393, -2, 0.175191, -1.92478, 9.35656, -0.35409)
+transform = Transform3D(0.0729677, -0.0292036, -2.00846, 2.00658, -0.0907568, 0.0742189, -0.0917657, -2.00773, 0.0258595, -25.661, 9.35656, -0.35409)
 collision_layer = 10
 metadata/_edit_group_ = true
 

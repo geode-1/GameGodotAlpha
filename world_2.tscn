@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://b13n8cwhsmy2l"]
+[gd_scene load_steps=29 format=3 uid="uid://b13n8cwhsmy2l"]
 
 [ext_resource type="PackedScene" uid="uid://bdsn5o8s6byyx" path="res://Player.tscn" id="1_cp1j0"]
 [ext_resource type="Script" path="res://world_2.gd" id="1_f3cim"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bpfj5qsdagh8y" path="res://player_model_1.gltf" id="7_uurj5"]
 [ext_resource type="PackedScene" uid="uid://el8i0yh2l1m0" path="res://player_model_2.glb" id="8_mp7q4"]
 [ext_resource type="PackedScene" uid="uid://kkxc6yyhd11v" path="res://goal.tscn" id="9_sp0pw"]
+[ext_resource type="PackedScene" uid="uid://c68pojljqdooy" path="res://spring.tscn" id="10_ps1tf"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_n4t4s"]
 size = Vector3(5, 1, 10)
@@ -112,7 +113,7 @@ script = ExtResource("1_f3cim")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.3246, 11.3614, -2.97013)
 
 [node name="Platform" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.95027, 2.17912, 4.11967)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.95027, 2.17912, 17.8977)
 collision_layer = 10
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Platform"]
@@ -188,7 +189,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.25908, 2.93424, -1.50468)
 curve = SubResource("Curve3D_884qo")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(-0.0812252, -0.00331438, 0.996687, 2.32831e-10, 0.999827, 0.00332591, -0.996696, 0.000270103, -0.0812244, -0.0131626, -1.01889, 0.317371)
+transform = Transform3D(-0.0812252, -0.00331438, 0.996681, 2.32831e-10, 0.999827, 0.00332589, -0.996696, 0.000270103, -0.081224, -0.0131626, -1.01889, 0.317371)
 
 [node name="Platfrom_spawner4" parent="Path3D/PathFollow3D" instance=ExtResource("4_m6q5h")]
 transform = Transform3D(-0.0812249, -3.67783e-11, -0.996696, -0.00331553, 1.00012, 0.000270196, 0.99669, 0.00332612, -0.0812245, 0.315252, 1.01888, 0.0422859)
@@ -245,3 +246,6 @@ shape = SubResource("CapsuleShape3D_jddv3")
 
 [node name="goal" parent="." instance=ExtResource("9_sp0pw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.10245, 3.49363, -9.71757)
+
+[node name="Spring" parent="." instance=ExtResource("10_ps1tf")]
+transform = Transform3D(1, 0, 0, 0, 0.0206632, -0.999786, 0, 0.999786, 0.0206632, -1.83045, 2.8572, 0)

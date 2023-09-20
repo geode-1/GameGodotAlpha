@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dn7yjh3ali2if" path="res://wall_spawner.tscn" id="1_3liaa"]
 [ext_resource type="Script" path="res://world_3.gd" id="1_45n7f"]
-[ext_resource type="Texture2D" uid="uid://cj46m7scaf3r2" path="res://ASSETS/Prototype/PNG/Orange/texture_01.png" id="1_n33d7"]
+[ext_resource type="Texture2D" uid="uid://cd3682px0k3ht" path="res://ASSETS/Prototype/PNG/Dark/texture_13.png" id="2_1j7pt"]
 [ext_resource type="PackedScene" uid="uid://bdsn5o8s6byyx" path="res://Player.tscn" id="3_6pg61"]
 [ext_resource type="PackedScene" uid="uid://bplqafvs7udi8" path="res://coin.tscn" id="5_75hjw"]
 [ext_resource type="PackedScene" uid="uid://bfpcvimrbiyrs" path="res://game_ui.tscn" id="5_p8rm0"]
@@ -29,7 +29,7 @@ volumetric_fog_density = 0.0278
 volumetric_fog_length = 15.24
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h8don"]
-albedo_texture = ExtResource("1_n33d7")
+albedo_texture = ExtResource("2_1j7pt")
 uv1_offset = Vector3(60, 2.08165e-12, 2.08165e-12)
 uv1_triplanar = true
 
