@@ -14,7 +14,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	$CoinStats.text = "Coins: " + str(GameTimer.coins)
-	$PersonalBest.text = "Personal Best: " + str(GameTimer.high_score_timer)
+	$PersonalBest.text = "Personal Best: " + str(GameTimer.best_time_timer)
 
 
 func _on_go_menu_pressed():

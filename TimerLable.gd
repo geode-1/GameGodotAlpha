@@ -36,7 +36,7 @@ func _process(delta: float) -> void:
 
 
 	
-	GameTimer.high_score_timer = minutes_str + ":" + seconds_str + ":" + milliseconds_str
+	GameTimer.best_time_timer = minutes_str + ":" + seconds_str + ":" + milliseconds_str
 
 	
 

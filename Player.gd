@@ -46,10 +46,6 @@ func _input(event):
 		
 
 
-
-func damage():
-	pass
-
 func death():
 	get_tree().change_scene_to_file("res://game_over.tscn")
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -68,23 +64,28 @@ func _physics_process(delta):
 		#Gravity 
 	if not is_on_floor():
 		velocity.y -= gravity * delta
+		GameTimer.can_platform_change = false
+		
+	if is_on_floor():
+		GameTimer.can_platform_change = true
+		$CPUParticles3D.emitting = false
 
 
 		# Handle Jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_velocity
 		total_jumps = 1
-		GameTimer.can_platform_change = true
-	
+		$CPUParticles3D.emitting = true
 		
 		
 		#double jump , note: in a future, change double jump to a mid air dash 
 	if Input.is_action_just_pressed("jump") and not is_on_floor() and total_jumps == 1:
 		velocity.y = jump_velocity
 		total_jumps = 2
+		$CPUParticles3D.emitting = true
 
 		if $".".is_on_floor():
-			GameTimer.can_platform_change = false
+			GameTimer.can_platform_change = true
 		
 
 	# Get the input direction and handle the movement/deceleration.

@@ -13,12 +13,12 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	$CoinStats.text = "Coins: " + str(GameTimer.coins)
-	$TimeStats.text = "Time: " + GameTimer.high_score_timer
+	$TimeStats.text = "Time: " + GameTimer.best_time_timer
 
 
 func _on_next_level_pressed():
 	print("next level here")
-	get_tree().change_scene_to_file("res://error_screen.tscn")
+	get_tree().change_scene_to_file(GameTimer.next_scene)
 	GameTimer.coins = 0
 
 

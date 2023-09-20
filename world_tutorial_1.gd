@@ -10,4 +10,10 @@ func _ready():
 func _process(delta):
 	GameTimer.prev_scene = "res://world_tutorial_1.tscn"
 	
+	GameTimer.next_scene = "res://world_3.tscn"
+	
 	GameTimer.coins_lvl_1 = GameTimer.coins
+	
+	#personal best store
+	if int(GameTimer.time_lvl_1) <= int(GameTimer.best_time_timer):
+		GameTimer.time_lvl_1 = GameTimer.best_time_timer

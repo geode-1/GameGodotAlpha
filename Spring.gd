@@ -21,6 +21,7 @@ func _on_body_entered(body):
 		if player != null:
  # Set the upward velocity to achieve the bounce effect
 			player.velocity.y = lerp(BOUNCE_FORCE, 25, 0.4)
+			$AnimationPlayer.play("sping_bounce")
 		else:
 			print("Player not found or is null.")
 
