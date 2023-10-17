@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cqrqg4t0lnej6"]
+[gd_scene load_steps=3 format=3 uid="uid://cqrqg4t0lnej6"]
 
 [ext_resource type="Script" path="res://Options.gd" id="1_gu5g4"]
+[ext_resource type="Texture2D" uid="uid://clkgjbrwrynyd" path="res://ASSETS/menuBackground.png" id="2_wip35"]
 
 [node name="Options" type="Control"]
 layout_mode = 3
@@ -11,7 +12,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_gu5g4")
 
+[node name="MenuBackground" type="Sprite2D" parent="."]
+position = Vector2(-8, 0)
+scale = Vector2(10.069, 10.125)
+texture = ExtResource("2_wip35")
+centered = false
+
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 layout_mode = 0
 offset_right = 1248.0
 offset_bottom = 712.0

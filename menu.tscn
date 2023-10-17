@@ -1,12 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://rhx8120x657n"]
+[gd_scene load_steps=15 format=3 uid="uid://rhx8120x657n"]
 
 [ext_resource type="Script" path="res://Menu.gd" id="1_3bncv"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_hu0px"]
-font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_snn63"]
-font_color = Color(0, 0, 0, 1)
+[ext_resource type="Texture2D" uid="uid://kwm4w21bqqvh" path="res://ASSETS/gameTitle.png" id="2_kfny1"]
+[ext_resource type="Texture2D" uid="uid://dprpvhghv4nyi" path="res://ASSETS/gameTitle2.png" id="3_jgvsx"]
+[ext_resource type="Texture2D" uid="uid://clkgjbrwrynyd" path="res://ASSETS/menuBackground.png" id="4_4cjkj"]
+[ext_resource type="Texture2D" uid="uid://dkbgqaw8dyel4" path="res://ASSETS/menu_images/tile_0358.png" id="5_8vq1q"]
+[ext_resource type="Texture2D" uid="uid://cv834q0viugw0" path="res://ASSETS/menu_images/tile_0392.png" id="6_nfim1"]
+[ext_resource type="Texture2D" uid="uid://lsqnouq2adw6" path="res://ASSETS/menu_images/tile_0393.png" id="7_b5yjc"]
+[ext_resource type="Texture2D" uid="uid://baycmkuffkuq8" path="res://ASSETS/menu_images/tile_0394.png" id="8_qn4it"]
+[ext_resource type="Texture2D" uid="uid://dw77b0bqfsva2" path="res://ASSETS/menu_images/tile_0507.png" id="9_ngpfm"]
+[ext_resource type="Texture2D" uid="uid://bwu4oireqsfec" path="res://ASSETS/menu_images/tile_0508.png" id="10_m8svf"]
+[ext_resource type="Texture2D" uid="uid://ooewva7ttbyh" path="res://ASSETS/menu_images/tile_0509.png" id="11_468hv"]
+[ext_resource type="Texture2D" uid="uid://c5penbnbjju10" path="res://ASSETS/menu_images/tile_0527.png" id="12_nibw2"]
+[ext_resource type="Texture2D" uid="uid://dviglksnrvkrj" path="res://ASSETS/menu_images/tile_0528.png" id="13_pcmst"]
+[ext_resource type="Texture2D" uid="uid://4eiw0qpwgd6s" path="res://ASSETS/menu_images/tile_0289.png" id="14_o3rcc"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -17,7 +24,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3bncv")
 
+[node name="MenuBackground" type="Sprite2D" parent="."]
+position = Vector2(-8, 0)
+scale = Vector2(10.069, 10.125)
+texture = ExtResource("4_4cjkj")
+centered = false
+
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 layout_mode = 0
 offset_right = 1248.0
 offset_bottom = 712.0
@@ -25,11 +39,11 @@ color = Color(0.831373, 0.831373, 0.831373, 1)
 
 [node name="ColorRect4" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = 65.0
-offset_top = 386.0
-offset_right = 1119.0
-offset_bottom = 614.0
-color = Color(0.6, 0.6, 0.6, 1)
+offset_left = 176.0
+offset_top = 392.0
+offset_right = 1008.0
+offset_bottom = 586.0
+color = Color(0.176471, 0.537255, 0.933333, 0.792157)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -54,7 +68,7 @@ text = "Play"
 
 [node name="OtherPrototypes" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Other Prototypes"
+text = "Options"
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -62,13 +76,14 @@ text = "Quit"
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 layout_mode = 2
-offset_left = 107.0
-offset_top = 416.0
-offset_right = 390.0
-offset_bottom = 578.0
-color = Color(0.411765, 0.411765, 0.411765, 1)
+offset_left = 186.0
+offset_top = 408.0
+offset_right = 529.0
+offset_bottom = 570.0
+color = Color(0.423529, 0.317647, 0.521569, 1)
 
 [node name="Label" type="Label" parent="ColorRect2"]
+visible = false
 layout_mode = 2
 offset_left = 7.0
 offset_top = 5.0
@@ -81,43 +96,118 @@ esc = quit
 Run towards walls to climb them!
 Jump twice to double jump!"
 
+[node name="Label2" type="Label" parent="ColorRect2"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 16.0
+offset_right = 85.0
+offset_bottom = 42.0
+text = "Sprint"
+
+[node name="Label3" type="Label" parent="ColorRect2"]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 136.0
+offset_right = 104.0
+offset_bottom = 162.0
+text = "Jump"
+
+[node name="Label4" type="Label" parent="ColorRect2"]
+layout_mode = 0
+offset_left = 232.0
+offset_top = 32.0
+offset_right = 316.0
+offset_bottom = 58.0
+text = "Movement"
+
+[node name="Label5" type="Label" parent="ColorRect2"]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 16.0
+offset_right = 198.0
+offset_bottom = 42.0
+text = "Main Menu"
+
 [node name="ColorRect3" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = 739.0
-offset_top = 428.0
-offset_right = 1096.0
-offset_bottom = 580.0
-color = Color(0.411765, 0.411765, 0.411765, 1)
+offset_left = 608.0
+offset_top = 416.0
+offset_right = 965.0
+offset_bottom = 568.0
+color = Color(0.423529, 0.317647, 0.521569, 1)
+metadata/_edit_group_ = true
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="ColorRect3"]
 layout_mode = 0
-offset_left = 746.0
-offset_top = 438.0
-offset_right = 1129.0
-offset_bottom = 571.0
+offset_left = 7.0
+offset_top = 10.0
+offset_right = 390.0
+offset_bottom = 143.0
 text = "Some platforms goes transparent when you 
 jump
 A red death zone slowly moves up the level,
 so dont wait too long!
 There are also springs that take you higher!"
 
-[node name="Label2" type="Label" parent="."]
-layout_mode = 0
-offset_left = 729.0
-offset_top = 268.0
-offset_right = 838.0
-offset_bottom = 294.0
-text = "<- Main Game "
-label_settings = SubResource("LabelSettings_hu0px")
+[node name="GameTitle" type="Sprite2D" parent="."]
+position = Vector2(608, 142)
+scale = Vector2(6.882, 6.882)
+texture = ExtResource("2_kfny1")
 
-[node name="Label3" type="Label" parent="."]
-layout_mode = 0
-offset_left = 726.0
-offset_top = 308.0
-offset_right = 954.0
-offset_bottom = 334.0
-text = "<- Not part of the main game do not select "
-label_settings = SubResource("LabelSettings_snn63")
+[node name="GameTitle2" type="Sprite2D" parent="."]
+position = Vector2(614, 142)
+scale = Vector2(6.944, 6.944)
+texture = ExtResource("3_jgvsx")
+
+[node name="Tile0358" type="Sprite2D" parent="."]
+position = Vector2(464, 496)
+scale = Vector2(3, 3)
+texture = ExtResource("5_8vq1q")
+
+[node name="Tile0392" type="Sprite2D" parent="."]
+position = Vector2(424, 536)
+scale = Vector2(3, 3)
+texture = ExtResource("6_nfim1")
+
+[node name="Tile0393" type="Sprite2D" parent="."]
+position = Vector2(464, 536)
+scale = Vector2(3, 3)
+texture = ExtResource("7_b5yjc")
+
+[node name="Tile0394" type="Sprite2D" parent="."]
+position = Vector2(504, 536)
+scale = Vector2(3, 3)
+texture = ExtResource("8_qn4it")
+
+[node name="Tile0507" type="Sprite2D" parent="."]
+position = Vector2(224, 528)
+scale = Vector2(3, 3)
+texture = ExtResource("9_ngpfm")
+
+[node name="Tile0508" type="Sprite2D" parent="."]
+position = Vector2(272, 528)
+scale = Vector2(3, 3)
+texture = ExtResource("10_m8svf")
+
+[node name="Tile0509" type="Sprite2D" parent="."]
+position = Vector2(320, 528)
+scale = Vector2(3, 3)
+texture = ExtResource("11_468hv")
+
+[node name="Tile0527" type="Sprite2D" parent="."]
+position = Vector2(224, 472)
+scale = Vector2(3, 3)
+texture = ExtResource("12_nibw2")
+
+[node name="Tile0528" type="Sprite2D" parent="."]
+position = Vector2(272, 472)
+scale = Vector2(3, 3)
+texture = ExtResource("13_pcmst")
+
+[node name="Tile0289" type="Sprite2D" parent="."]
+position = Vector2(336, 472)
+scale = Vector2(3, 3)
+texture = ExtResource("14_o3rcc")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/OtherPrototypes" to="." method="_on_other_prototypes_pressed"]

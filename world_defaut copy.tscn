@@ -1,10 +1,12 @@
-[gd_scene load_steps=30 format=3 uid="uid://7g43h5d8fpxl"]
+[gd_scene load_steps=32 format=3 uid="uid://7g43h5d8fpxl"]
 
 [ext_resource type="Script" path="res://world_3.gd" id="1_cekh6"]
 [ext_resource type="Texture2D" uid="uid://bmophm06pjm75" path="res://ASSETS/Prototype/PNG/Dark/texture_01.png" id="2_8tuff"]
 [ext_resource type="PackedScene" uid="uid://bdsn5o8s6byyx" path="res://Player.tscn" id="3_qdq1j"]
 [ext_resource type="PackedScene" uid="uid://bfpcvimrbiyrs" path="res://game_ui.tscn" id="4_d05ny"]
+[ext_resource type="PackedScene" uid="uid://v6v63us6j7v3" path="res://level_wall_test2.glb" id="8_ewyms"]
 [ext_resource type="Script" path="res://endDeathzone.gd" id="8_w2w35"]
+[ext_resource type="PackedScene" uid="uid://cj668au6lwytd" path="res://ASSETS/level_wall2.gltf" id="9_snea4"]
 [ext_resource type="PackedScene" uid="uid://kkxc6yyhd11v" path="res://goal.tscn" id="10_c2ac0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tmxc1"]
@@ -129,6 +131,7 @@ script = ExtResource("1_cekh6")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.406744, -0.0208042, -0.913305, -0.404264, 0.900623, 0.159525, 0.819225, 0.434102, -0.374734, -0.654177, 17.7428, -8.75957)
+shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_2wa4i")
@@ -146,6 +149,7 @@ shape = SubResource("BoxShape3D_p2c41")
 
 [node name="wall2" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 2.08165e-12, 15)
+visible = false
 collision_layer = 2
 metadata/_edit_group_ = true
 
@@ -241,6 +245,13 @@ transform = Transform3D(0.0424685, 0, -0.999098, 0, 1, 0, 0.999098, 0, 0.0424685
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -50.0124, 0)
 mesh = SubResource("BoxMesh_hhrb7")
+
+[node name="level_wall2" parent="." instance=ExtResource("9_snea4")]
+transform = Transform3D(0.704, 0, 0, 0, 0.704, 0, 0, 0, 0.704, 0, 0, -20.0682)
+visible = false
+
+[node name="level_wall_test2" parent="." instance=ExtResource("8_ewyms")]
+transform = Transform3D(0.58, 0, 0, 0, 0.58, 0, 0, 0, 0.58, -63.3185, 8.62118, 14.5)
 
 [connection signal="area_entered" from="death_zone" to="Player" method="_on_death_zone_area_entered"]
 [connection signal="area_entered" from="Path3D/PathFollow3D/endDeathzone" to="Player" method="_on_end_deathzone_area_entered"]

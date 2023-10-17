@@ -2,7 +2,7 @@ extends Node3D
 
 
 
-
+# The scene for the wall object to spawn.
 @export var wall_object = preload("res://move_wall.tscn")
 
 
@@ -12,7 +12,7 @@ extends Node3D
 func _ready():
 	pass
 
-
+# Spawns a wall object in the scene.
 func spawn_platform():
 	var object = wall_object.instantiate()
 	add_child(object)

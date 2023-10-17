@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cvyufdwodl4na"]
+[gd_scene load_steps=33 format=3 uid="uid://c6d85241ginr0"]
 
 [ext_resource type="PackedScene" uid="uid://bdsn5o8s6byyx" path="res://Player.tscn" id="1_emvy8"]
 [ext_resource type="Script" path="res://world.gd" id="1_ujt2x"]
@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dbvy7rfq2ol66" path="res://ASSETS/Prototype/PNG/Orange/texture_04.png" id="4_kmyxv"]
 [ext_resource type="PackedScene" uid="uid://d0lyel4tb8svt" path="res://enemy_2.tscn" id="5_uomta"]
 [ext_resource type="PackedScene" uid="uid://dbtbvft6vqxd5" path="res://changing_platform.tscn" id="7_470db"]
-[ext_resource type="PackedScene" uid="uid://cpm6k10ipboq5" path="res://changing_platform_trans.tscn" id="8_32iyv"]
+[ext_resource type="PackedScene" uid="uid://bd8oog74eirce" path="res://changing_platform_trans.tscn" id="8_32iyv"]
 [ext_resource type="PackedScene" uid="uid://c68pojljqdooy" path="res://spring.tscn" id="9_sf5ni"]
 [ext_resource type="Texture2D" uid="uid://bv2cwfx2lmttr" path="res://icon.svg" id="10_05wav"]
 [ext_resource type="PackedScene" uid="uid://cqxd6w62186e6" path="res://ASSETS/platform_test.gltf" id="11_3awk4"]
@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bxwm5akpuhe5g" path="res://ASSETS/platform_test2.gltf" id="13_va8ru"]
 [ext_resource type="PackedScene" uid="uid://bplqafvs7udi8" path="res://coin.tscn" id="14_y1i8n"]
 [ext_resource type="PackedScene" uid="uid://cocxc7f21gvgc" path="res://player_model_3.gltf" id="15_38gdv"]
-[ext_resource type="PackedScene" uid="uid://ce1lc22ysfnm7" path="res://ASSETS/plarform_red_1.gltf" id="16_x6m4g"]
+[ext_resource type="PackedScene" uid="uid://ce1lc22ysfnm7" path="res://ASSETS/change_platforms_red.gltf" id="16_x6m4g"]
 [ext_resource type="PackedScene" uid="uid://1jc7ksv01w3c" path="res://ASSETS/change_platforms._blueglb.gltf" id="17_qhd05"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_8tdav"]

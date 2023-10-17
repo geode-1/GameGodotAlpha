@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://b13n8cwhsmy2l"]
+[gd_scene load_steps=30 format=3 uid="uid://b13n8cwhsmy2l"]
 
 [ext_resource type="PackedScene" uid="uid://bdsn5o8s6byyx" path="res://Player.tscn" id="1_cp1j0"]
 [ext_resource type="Script" path="res://world_2.gd" id="1_f3cim"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://el8i0yh2l1m0" path="res://player_model_2.glb" id="8_mp7q4"]
 [ext_resource type="PackedScene" uid="uid://kkxc6yyhd11v" path="res://goal.tscn" id="9_sp0pw"]
 [ext_resource type="PackedScene" uid="uid://c68pojljqdooy" path="res://spring.tscn" id="10_ps1tf"]
+[ext_resource type="PackedScene" uid="uid://8tay1jas4853" path="res://player_model_1V2.gltf" id="11_7rrj5"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_n4t4s"]
 size = Vector3(5, 1, 10)
@@ -189,7 +190,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.25908, 2.93424, -1.50468)
 curve = SubResource("Curve3D_884qo")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(-0.0812252, -0.00331438, 0.996681, 2.32831e-10, 0.999827, 0.00332589, -0.996696, 0.000270103, -0.081224, -0.0131626, -1.01889, 0.317371)
+transform = Transform3D(-0.0812252, -0.00331438, 0.996681, 2.32831e-10, 0.999827, 0.00332589, -0.996696, 0.000270103, -0.0812239, -0.0131626, -1.01889, 0.317371)
 
 [node name="Platfrom_spawner4" parent="Path3D/PathFollow3D" instance=ExtResource("4_m6q5h")]
 transform = Transform3D(-0.0812249, -3.67783e-11, -0.996696, -0.00331553, 1.00012, 0.000270196, 0.99669, 0.00332612, -0.0812245, 0.315252, 1.01888, 0.0422859)
@@ -249,3 +250,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.10245, 3.49363, -9.71757)
 
 [node name="Spring" parent="." instance=ExtResource("10_ps1tf")]
 transform = Transform3D(1, 0, 0, 0, 0.0206632, -0.999786, 0, 0.999786, 0.0206632, -1.83045, 2.8572, 0)
+
+[node name="player_model_1V2" parent="." instance=ExtResource("11_7rrj5")]
+transform = Transform3D(0.366, 0, 0, 0, 0.366, 0, 0, 0, 0.366, -17.2712, 9.25, -3.22524)

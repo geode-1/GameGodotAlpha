@@ -1,7 +1,9 @@
 extends Area3D
 
-
+# The path to the player scene.
 var player = "res://Player.tscn"
+
+# The force used for the bounce effect.
 const BOUNCE_FORCE = 25
 
 # Called when the node enters the scene tree for the first time.

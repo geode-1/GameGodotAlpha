@@ -9,5 +9,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	#Update UI graphic for coins 
 	$MarginContainer/VBoxContainer/Coins.text = "Coins: " + str(GameTimer.coins)
 

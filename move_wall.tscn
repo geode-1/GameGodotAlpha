@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://cromvo03bnnkj"]
+[gd_scene load_steps=11 format=3 uid="uid://cromvo03bnnkj"]
 
 [ext_resource type="Script" path="res://move_platform.gd" id="1_fkdqk"]
+[ext_resource type="PackedScene" uid="uid://bjhutlb6dhwh0" path="res://ASSETS/block_wall2.gltf" id="2_a5rqj"]
 
 [sub_resource type="Curve3D" id="Curve3D_pkwla"]
 _data = {
@@ -8,6 +9,9 @@ _data = {
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h64kk"]
+size = Vector3(5, 0.5, 8)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nigdd"]
 albedo_color = Color(0.741176, 0.0901961, 0.0980392, 1)
@@ -18,9 +22,6 @@ size = Vector3(5, 0.5, 8)
 
 [sub_resource type="BoxMesh" id="BoxMesh_3rxsc"]
 size = Vector3(0.492, 1.248, 7.644)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_h64kk"]
-size = Vector3(5, 0.5, 8)
 
 [sub_resource type="Animation" id="Animation_4ny54"]
 length = 64.0
@@ -72,28 +73,34 @@ transform = Transform3D(0.999829, 0, 0.000106604, 0, 1, 0, -0.000106604, 0, 0.99
 transform = Transform3D(1, 0, 2.59811e-11, 0, 1, 0, 2.59811e-11, 0, 1, 0, 0, 0)
 collision_layer = 10
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Path3D/PathFollow3D/wall"]
+transform = Transform3D(1, -4.7067e-12, 1.49825e-20, 0, -4.37114e-08, -1, 4.59989e-12, 1, -4.37114e-08, 0, 1, 0)
+shape = SubResource("BoxShape3D_h64kk")
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/PathFollow3D/wall"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, 0)
+visible = false
 mesh = SubResource("BoxMesh_fj5fm")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Path3D/PathFollow3D/wall"]
 transform = Transform3D(0.866045, -0.00851726, -0.499893, -0.499938, -0.00420482, -0.866051, 0.00527442, 0.999955, -0.00789966, 0, 1, 0)
+visible = false
 mesh = SubResource("BoxMesh_3rxsc")
 skeleton = NodePath("../MeshInstance3D")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="Path3D/PathFollow3D/wall"]
 transform = Transform3D(-0.866046, 0.00851717, 0.499893, -0.499894, -0.0317752, -0.865505, 0.00851255, -0.999459, 0.0317764, 0, 1, 0)
+visible = false
 mesh = SubResource("BoxMesh_3rxsc")
 skeleton = NodePath("../MeshInstance3D")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Path3D/PathFollow3D/wall"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, 0)
-shape = SubResource("BoxShape3D_h64kk")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Path3D/PathFollow3D/wall"]
 autoplay = "move_platform"
 libraries = {
 "": SubResource("AnimationLibrary_rpeqh")
 }
+
+[node name="block_wall2" parent="Path3D/PathFollow3D/wall" instance=ExtResource("2_a5rqj")]
+transform = Transform3D(-0.534, 1.86252e-16, -4.66838e-08, 1.86252e-16, 0.534, -1.86252e-16, 4.66838e-08, -1.86252e-16, -0.534, 0, 1, 0)
 
 [connection signal="animation_finished" from="Path3D/PathFollow3D/wall/AnimationPlayer" to="." method="_on_animation_player_animation_finished" flags=18]

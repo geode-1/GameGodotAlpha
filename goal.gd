@@ -12,5 +12,6 @@ func _process(delta):
 
 
 func _on_area_entered(area):
+	#Change the scene to "win_screen.tscn" and set the mouse mode to visible.
 	get_tree().change_scene_to_file("res://win_screeen.tscn")
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

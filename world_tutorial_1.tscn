@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" path="res://world_tutorial_1.gd" id="1_5gceg"]
 [ext_resource type="PackedScene" uid="uid://bdsn5o8s6byyx" path="res://Player.tscn" id="1_no7k5"]
-[ext_resource type="Texture2D" uid="uid://cj46m7scaf3r2" path="res://ASSETS/Prototype/PNG/Orange/texture_01.png" id="2_7yyt6"]
 [ext_resource type="PackedScene" uid="uid://bfpcvimrbiyrs" path="res://game_ui.tscn" id="4_u666a"]
+[ext_resource type="Texture2D" uid="uid://3ayic4yggbrb" path="res://ASSETS/Tiles (Color)/tile_0001.png" id="5_vgwab"]
 [ext_resource type="Script" path="res://endDeathzone.gd" id="6_rj0e3"]
 [ext_resource type="PackedScene" uid="uid://kkxc6yyhd11v" path="res://goal.tscn" id="6_vwfss"]
 [ext_resource type="PackedScene" uid="uid://dbtbvft6vqxd5" path="res://changing_platform.tscn" id="7_1rb76"]
-[ext_resource type="PackedScene" uid="uid://cpm6k10ipboq5" path="res://changing_platform_trans.tscn" id="8_r4pdc"]
+[ext_resource type="PackedScene" uid="uid://bd8oog74eirce" path="res://changing_platform_trans.tscn" id="8_r4pdc"]
 [ext_resource type="Texture2D" uid="uid://bv2cwfx2lmttr" path="res://icon.svg" id="9_vx4ux"]
 [ext_resource type="PackedScene" uid="uid://bplqafvs7udi8" path="res://coin.tscn" id="10_53llp"]
 [ext_resource type="PackedScene" uid="uid://c68pojljqdooy" path="res://spring.tscn" id="11_nck42"]
@@ -39,8 +39,7 @@ volumetric_fog_density = 0.0278
 volumetric_fog_length = 15.24
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h8don"]
-albedo_texture = ExtResource("2_7yyt6")
-uv1_offset = Vector3(60, 2.08165e-12, 2.08165e-12)
+albedo_texture = ExtResource("5_vgwab")
 uv1_triplanar = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_bmfp7"]
@@ -66,6 +65,7 @@ size = Vector3(1500, 1, 100)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jvixr"]
 albedo_color = Color(1, 0.596078, 0.219608, 1)
+albedo_texture = ExtResource("5_vgwab")
 
 [sub_resource type="BoxMesh" id="BoxMesh_e1xtj"]
 material = SubResource("StandardMaterial3D_jvixr")
@@ -218,7 +218,6 @@ script = ExtResource("1_5gceg")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.406747, -0.0206237, -0.913308, -0.40465, 0.900387, 0.159881, 0.819033, 0.434601, -0.374575, -0.10576, 17.3119, -7.68889)
-shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_2wa4i")
@@ -449,3 +448,4 @@ mesh = SubResource("BoxMesh_vcd3w")
 
 [connection signal="area_entered" from="death_zone" to="Player" method="_on_death_zone_area_entered"]
 [connection signal="area_entered" from="Path3D/PathFollow3D/endDeathzone" to="Player" method="_on_end_deathzone_area_entered"]
+[connection signal="area_entered" from="goal" to="." method="_on_goal_area_entered"]

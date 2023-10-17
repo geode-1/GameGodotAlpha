@@ -8,19 +8,19 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	GameTimer.prev_scene = "res://world_3.tscn"
+	GameTimer.prev_scene = "res://level_2.tscn"
 	
 	GameTimer.next_scene = "res://level_2.tscn"
 	
-	#GameTimer.coins_lvl_2 = GameTimer.coins
+
 	
 
 
 
 
 func _on_goal_area_entered(area):
-	#Saving coins 
-	GameTimer.coins_lvl_2 = GameTimer.coins
+	#Saving coins
+	GameTimer.coins_lvl_3 = GameTimer.coins
 	#Saving time based on if the time is lower or higher than the curently saved time
-	if int(GameTimer.time_lvl_2) <= int(GameTimer.best_time_timer):
-		GameTimer.time_lvl_2 = GameTimer.best_time_timer
+	if int(GameTimer.time_lvl_3) <= int(GameTimer.best_time_timer):
+		GameTimer.time_lvl_3 = GameTimer.best_time_timer

@@ -12,8 +12,15 @@ func _process(delta):
 	
 	GameTimer.next_scene = "res://world_3.tscn"
 	
-	GameTimer.coins_lvl_1 = GameTimer.coins
+
 	
 	#personal best store
+
+
+
+func _on_goal_area_entered(area):
+	#Saving coins
+	GameTimer.coins_lvl_1 = GameTimer.coins
+		#Saving time based on if the time is lower or higher than the curently saved time
 	if int(GameTimer.time_lvl_1) <= int(GameTimer.best_time_timer):
 		GameTimer.time_lvl_1 = GameTimer.best_time_timer
